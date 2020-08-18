@@ -5,7 +5,7 @@ import GameSummary from './GameSummary';
 import HitterStats from './HitterStats';
 import BoxScore from './BoxScore';
 
-export default function MLB(props: any) {
+export default function NBA(props: any) {
   return (
     <div className="mlb">
       <div className="header">

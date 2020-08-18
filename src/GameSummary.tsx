@@ -4,7 +4,6 @@ import {fetchStats} from './store/stats';
 import { stat } from 'fs';
 
 function GameSummary(props: any) {
-  console.log(props, 'props')
 
   useEffect(() => {
     props.fetchStats();
