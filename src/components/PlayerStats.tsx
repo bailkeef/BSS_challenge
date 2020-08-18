@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {fetchStats} from '../store/nba';
 
 function PlayerStats (props: any) {
-  console.log(props, 'props from hitterstats')
 
   useEffect(() => {
     props.fetchStats();

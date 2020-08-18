@@ -4,7 +4,6 @@ import {fetchStats} from '../store/mlb';
 import { stat } from 'fs';
 
 function BoxScore(props: any) {
-  console.log(props, 'props')
 
   useEffect(() => {
     props.fetchStats();

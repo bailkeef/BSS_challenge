@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React from 'react';
 import GameSummaryNBA from './GameSummaryNBA';
 import BoxScoreNBA from './BoxScoreNBA';
 import PlayerStats from './PlayerStats';

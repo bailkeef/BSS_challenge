@@ -1,6 +1,4 @@
-import React, { useEffect, useState} from 'react';
-import {connect} from 'react-redux';
-import {fetchStats} from '../store/mlb';
+import React from 'react';
 import GameSummary from './GameSummary';
 import HitterStats from './HitterStats';
 import BoxScore from './BoxScore';

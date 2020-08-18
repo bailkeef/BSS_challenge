@@ -33,7 +33,6 @@ const getStats = stats => ({type: GET_STATS, stats})
 export const fetchStats = () => async dispatch => {
   try {
     const res = await axios.get('https://chumley.barstoolsports.com/dev/data/games/eed38457-db28-4658-ae4f-4d4d38e9e212.json');
-    console.log(res.data);
     dispatch(getStats(res.data || initialState))
   } catch (err) {
     console.error(err)
