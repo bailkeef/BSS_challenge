@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {fetchStats} from './store/stats';
+import {fetchStats} from './store/mlb';
 import { stat } from 'fs';
 
 function BoxScore(props: any) {
@@ -57,16 +57,16 @@ function BoxScore(props: any) {
  */
 const mapState = (state: any) => {
   return {
-    homeScore: state.stats.homeScore,
-    awayScore: state.stats.awayScore,
-    homeTeam: state.stats.homeTeam,
-    awayTeam: state.stats.awayTeam,
-    homeErrors: state.stats.homeErrors,
-    awayErrors: state.stats.awayErrors,
-    homeRuns: state.stats.homeRuns,
-    awayRuns: state.stats.awayRuns,
-    homeHits: state.stats.homeHits,
-    awayHits: state.stats.awayHits,
+    homeScore: state.mlb.homeScore,
+    awayScore: state.mlb.awayScore,
+    homeTeam: state.mlb.homeTeam,
+    awayTeam: state.mlb.awayTeam,
+    homeErrors: state.mlb.homeErrors,
+    awayErrors: state.mlb.awayErrors,
+    homeRuns: state.mlb.homeRuns,
+    awayRuns: state.mlb.awayRuns,
+    homeHits: state.mlb.homeHits,
+    awayHits: state.mlb.awayHits,
 
   }
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {fetchStats} from './store/stats';
+import {fetchStats} from './store/mlb';
 import { stat } from 'fs';
 
 function HitterStats (props: any) {
@@ -59,16 +59,16 @@ function HitterStats (props: any) {
  */
 const mapState = (state: any) => {
   return {
-    homeScore: state.stats.homeScore,
-    awayScore: state.stats.awayScore,
-    homeTeam: state.stats.homeTeam,
-    awayTeam: state.stats.awayTeam,
-    homeFirst: state.stats.homeFirstName,
-    awayFirst: state.stats.awayFirstName,
-    homeLast: state.stats.homeLastName,
-    awayLast: state.stats.awayLastName,
-    homeBatters: state.stats.homeBatters,
-    awayBatters: state.stats.awayBatters,
+    homeScore: state.mlb.homeScore,
+    awayScore: state.mlb.awayScore,
+    homeTeam: state.mlb.homeTeam,
+    awayTeam: state.mlb.awayTeam,
+    homeFirst: state.mlb.homeFirstName,
+    awayFirst: state.mlb.awayFirstName,
+    homeLast: state.mlb.homeLastName,
+    awayLast: state.mlb.awayLastName,
+    homeBatters: state.mlb.homeBatters,
+    awayBatters: state.mlb.awayBatters,
   }
 }
 const mapDispatch = (dispatch: any, state: any) => {

@@ -11,17 +11,21 @@ function App() {
   let [view, setView] = useState('');
 
   function handleClick(e: any) {
-
+    setView(e.target.name)
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <div className="content">
-          <button>MLB</button>
-          <button>NBA</button>
-          <MLB/>
-          <NBA/>
+          <button name="MLB" onClick={handleClick}>MLB</button>
+          <button name="NBA" onClick={handleClick}>NBA</button>
+          {view == 'MLB' &&
+            <MLB/>
+          }
+          {view == 'NBA' &&
+            <NBA/>
+          }
         </div>
       </header>
     </div>

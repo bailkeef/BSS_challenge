@@ -2,10 +2,11 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import stats from './stats'
+import mlb from './mlb'
+import nba from './nba'
 
 const reducer = combineReducers({
-  stats
+  mlb, nba
 })
 
 const middleware = composeWithDevTools(

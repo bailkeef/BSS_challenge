@@ -1,26 +1,24 @@
 import React, { useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {fetchStats} from './store/mlb';
+import {fetchStats} from './store/nba';
 
-function GameSummary(props: any) {
-
+function GameSummaryNBA(props: any) {
+  console.log(props, 'props from gamesummaryNBA')
   useEffect(() => {
     props.fetchStats();
   }, []);
 
-  const cols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', 'H', 'E'];
+  let cols = ['1', '2', '3', '4']
   return (
     <div className="summary">
       <div className="team_summary">
         <p>{props.awayFirst} {props.awayLast} ({props.awayTeam})</p>
-        <p>{props.awayRuns}</p>
       </div>
       <div>
         <p>{props.status}</p>
       </div>
       <div className="team_summary">
         <p>{props.homeFirst} {props.homeLast} ({props.homeTeam})</p>
-        <p>{props.homeRuns}</p>
       </div>
     </div>
   );
@@ -30,16 +28,15 @@ function GameSummary(props: any) {
  * CONTAINER
  */
 const mapState = (state: any) => {
+  console.log(state, 'state')
   return {
-    homeTeam: state.mlb.homeTeam,
-    awayTeam: state.mlb.awayTeam,
-    homeFirst: state.mlb.homeFirstName,
-    awayFirst: state.mlb.awayFirstName,
-    homeLast: state.mlb.homeLastName,
-    awayLast: state.mlb.awayLastName,
-    homeRuns: state.mlb.homeRuns,
-    awayRuns: state.mlb.awayRuns,
-    status: state.mlb.status
+    homeTeam: state.nba.homeTeam,
+    awayTeam: state.nba.awayTeam,
+    homeFirst: state.nba.homeFirstName,
+    awayFirst: state.nba.awayFirstName,
+    homeLast: state.nba.homeLastName,
+    awayLast: state.nba.awayLastName,
+    status: state.nba.status
   }
 }
 const mapDispatch = (dispatch: any, state: any) => {
@@ -48,4 +45,4 @@ const mapDispatch = (dispatch: any, state: any) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(GameSummary);
+export default connect(mapState, mapDispatch)(GameSummaryNBA);
