@@ -43,7 +43,18 @@ function HitterStats (props: any) {
                     </tr>
                   )
                 })}
-                <tr>{}</tr>
+                <tr className="totals">
+                  <td>TEAM TOTALS</td>
+                  <td>{props[`${team}Stats`].at_bats}</td>
+                  <td>{props[`${team}Stats`].runs}</td>
+                  <td>{props[`${team}Stats`].hits}</td>
+                  <td>{props[`${team}Stats`].rbi}</td>
+                  <td>{props[`${team}Stats`].walks}</td>
+                  <td>{props[`${team}Stats`].strike_outs}</td>
+                  <td>{props[`${team}Stats`].avg}</td>
+                  <td>{props[`${team}Stats`].obp}</td>
+                  <td>{props[`${team}Stats`].slg}</td>
+                </tr>
             </table>
           </div>
         )
@@ -70,6 +81,8 @@ const mapState = (state: any) => {
     awayLast: state.mlb.awayLastName,
     homeBatters: state.mlb.homeBatters,
     awayBatters: state.mlb.awayBatters,
+    homeStats: state.mlb.homeStats,
+    awayStats: state.mlb.awayStats,
   }
 }
 const mapDispatch = (dispatch: any, state: any) => {

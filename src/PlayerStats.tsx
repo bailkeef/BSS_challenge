@@ -87,7 +87,7 @@ function PlayerStats (props: any) {
                       </tr>
                     )
                   })}
-                  <tr className="nba_totals">
+                  <tr className="totals">
                     <td>TEAM TOTALS</td>
                     <td>{props[`${team}Stats`].minutes}</td>
                     <td>{props[`${team}Stats`].field_goals_attempted}-{props[`${team}Stats`].field_goals_made}</td>
