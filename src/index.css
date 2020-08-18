@@ -74,6 +74,7 @@ button:focus {
   justify-content: center;
 }
 
+/* MLB & NBA BOX SCORES */
 .boxscore {
   color: black;
   margin: 15px;
@@ -94,7 +95,6 @@ button:focus {
 
 .boxscore_table th {
   width: 100px;
-  /* background-color: lightgray; */
 }
 
 thead {
@@ -109,6 +109,7 @@ thead {
   border-radius: 10px;
 }
 
+/* MLB & NBA SUMMARY */
 .summary {
   display: flex;
   width: 1000px;
@@ -131,6 +132,8 @@ thead {
   font-weight: bold;
 }
 
+/* MLB BATTER STATS */
+
 .hitter_container {
 
   justify-content: center;
@@ -140,7 +143,6 @@ thead {
   color: black;
   margin: 10px;
   padding: 10px;
-  /* width: 50%; */
 }
 
 .hitter_table {
@@ -169,11 +171,14 @@ thead {
   border-bottom: 1px double lightgray;
 }
 
+/* NBA PLAYER STAT TABLES */
+
 .player_name {
   width: 200px;
+  padding: 5px;
+  text-align: left;
 }
 
-/* NBA PLAYER STAT TABLES */
 .player_stats {
   color: black;
   margin: 10px;
@@ -209,6 +214,10 @@ thead {
 
 .totals {
   font-weight: bold;
+}
+
+.totals td:first-child {
+  text-align: left;
 }
 
 th:first-child { border-top-left-radius: 5px; }

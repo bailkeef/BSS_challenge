@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {fetchStats} from './store/mlb';
-import { stat } from 'fs';
+import {fetchStats} from '../store/mlb';
 
 function HitterStats (props: any) {
   console.log(props, 'props from hitterstats')
@@ -12,6 +11,24 @@ function HitterStats (props: any) {
 
   const teams = ['away', 'home'];
   const cols = ['Hitter', 'AB',	'R',	'H',	'RBI',	'BB',	'K',	'AVG',	'OBP',	'SLG'];
+
+  function formatNum(num: number) {
+    let str = num.toString().split('');
+    let res = [];
+    let index = str.indexOf('.');
+    if (index == -1) {
+      return str;
+    } else {
+      res = str.splice(index);
+      while (res.length < 4) {
+        res.push('0');
+      }
+      console.log(res, 'res')
+      return res.join('');
+    }
+
+
+  }
 
   return (
     <div className="hitter_container">
@@ -37,9 +54,9 @@ function HitterStats (props: any) {
                       <td>{player.rbi}</td>
                       <td>{player.walks}</td>
                       <td>{player.strike_outs}</td>
-                      <td>{player.avg}</td>
-                      <td>{player.obp}</td>
-                      <td>{player.slg}</td>
+                      <td>{formatNum(player.avg)}</td>
+                      <td>{formatNum(player.obp)}</td>
+                      <td>{formatNum(player.slg)}</td>
                     </tr>
                   )
                 })}
@@ -51,9 +68,9 @@ function HitterStats (props: any) {
                   <td>{props[`${team}Stats`].rbi}</td>
                   <td>{props[`${team}Stats`].walks}</td>
                   <td>{props[`${team}Stats`].strike_outs}</td>
-                  <td>{props[`${team}Stats`].avg}</td>
-                  <td>{props[`${team}Stats`].obp}</td>
-                  <td>{props[`${team}Stats`].slg}</td>
+                  <td>{formatNum(props[`${team}Stats`].avg)}</td>
+                  <td>{formatNum(props[`${team}Stats`].obp)}</td>
+                  <td>{formatNum(props[`${team}Stats`].slg)}</td>
                 </tr>
             </table>
           </div>

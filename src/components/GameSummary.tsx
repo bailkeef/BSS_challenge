@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {fetchStats} from './store/mlb';
+import {fetchStats} from '../store/mlb';
 
 function GameSummary(props: any) {
 

@@ -1,10 +1,7 @@
 import './App.css';
 import React, { useEffect, useState} from 'react';
-import BoxScore from './BoxScore';
-import GameSummary from './GameSummary';
-import HitterStats from './HitterStats';
-import MLB from './MLB';
-import NBA from './NBA';
+import MLB from './components/MLB';
+import NBA from './components/NBA';
 
 function App() {
 

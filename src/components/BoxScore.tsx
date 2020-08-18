@@ -1,18 +1,16 @@
 import React, { useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {fetchStats} from './store/nba';
+import {fetchStats} from '../store/mlb';
+import { stat } from 'fs';
 
-function BoxScoreNBA(props: any) {
+function BoxScore(props: any) {
   console.log(props, 'props')
 
   useEffect(() => {
     props.fetchStats();
   }, []);
 
-  const cols = ['1', '2', '3', '4', 'T'];
-  let awayT = 0;
-  let homeT = 0;
-
+  const cols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', 'H', 'E'];
   return (
     <div className="boxscore">
       <div>
@@ -27,23 +25,25 @@ function BoxScoreNBA(props: any) {
           <tbody>
             <tr>
               <td className="team_name">{props.awayTeam}</td>
-              {props.awayScore && props.awayScore.map((score: number, id: number) => {
-                awayT += score;
+              {props.awayScore.map((score: number, id: number) => {
                 return (
                   <td key={id}>{score}</td>
                 )
               })}
-              <td>{awayT}</td>
+              <td>{props.awayRuns}</td>
+              <td>{props.awayHits}</td>
+              <td>{props.awayErrors}</td>
             </tr>
             <tr>
               <td className="team_name">{props.homeTeam}</td>
-              {props.homeScore && props.homeScore.map((score: number, id: number) => {
-                homeT += score;
+              {props.homeScore.map((score: number, id: number) => {
                 return (
                   <td key={id}>{score}</td>
                 )
               })}
-              <td>{homeT}</td>
+              <td>{props.homeRuns}</td>
+              <td>{props.homeHits}</td>
+              <td>{props.homeErrors}</td>
             </tr>
           </tbody>
         </table>
@@ -57,10 +57,17 @@ function BoxScoreNBA(props: any) {
  */
 const mapState = (state: any) => {
   return {
-    homeScore: state.nba.homeScore,
-    awayScore: state.nba.awayScore,
-    homeTeam: state.nba.homeTeam,
-    awayTeam: state.nba.awayTeam,
+    homeScore: state.mlb.homeScore,
+    awayScore: state.mlb.awayScore,
+    homeTeam: state.mlb.homeTeam,
+    awayTeam: state.mlb.awayTeam,
+    homeErrors: state.mlb.homeErrors,
+    awayErrors: state.mlb.awayErrors,
+    homeRuns: state.mlb.homeRuns,
+    awayRuns: state.mlb.awayRuns,
+    homeHits: state.mlb.homeHits,
+    awayHits: state.mlb.awayHits,
+
   }
 }
 const mapDispatch = (dispatch: any, state: any) => {
@@ -69,4 +76,4 @@ const mapDispatch = (dispatch: any, state: any) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(BoxScoreNBA);
+export default connect(mapState, mapDispatch)(BoxScore);
