@@ -18,8 +18,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="content">
-          <button name="MLB" onClick={handleClick}>MLB</button>
-          <button name="NBA" onClick={handleClick}>NBA</button>
+          <p className="choose_view">Choose a view:</p>
+          <button name="MLB" onClick={handleClick}>{`MLB`}
+            <img src="/mlb_img.gif" height="30px"/>
+          </button>
+          <button name="NBA" onClick={handleClick}>{`NBA`}
+            <img src="/nba_img.png" height="30px"/>
+          </button>
           {view == 'MLB' &&
             <MLB/>
           }

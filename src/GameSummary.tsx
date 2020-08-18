@@ -16,7 +16,7 @@ function GameSummary(props: any) {
         <p>{props.awayRuns}</p>
       </div>
       <div>
-        <p>{props.status}</p>
+        <p>FINAL</p>
       </div>
       <div className="team_summary">
         <p>{props.homeFirst} {props.homeLast} ({props.homeTeam})</p>
@@ -39,7 +39,7 @@ const mapState = (state: any) => {
     awayLast: state.mlb.awayLastName,
     homeRuns: state.mlb.homeRuns,
     awayRuns: state.mlb.awayRuns,
-    status: state.mlb.status
+    status: state.mlb.status,
   }
 }
 const mapDispatch = (dispatch: any, state: any) => {

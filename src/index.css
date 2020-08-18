@@ -29,9 +29,36 @@ h4 {
   font-weight: bold;
 }
 
+
+button {
+  padding: 15px;
+  margin: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  background: rgb(6,4,45);
+  background: linear-gradient(120deg, rgba(6,4,45,1) 0%, rgba(14,14,110,1) 43%, rgba(26,157,209,1) 100%);
+  color: white;
+  border-radius: 10px;
+}
+
+button > * {
+  pointer-events: none;
+}
+
+button:focus {
+  background: rgb(99,8,8);
+  background: linear-gradient(120deg, rgba(99,8,8,1) 0%, rgba(187,40,40,1) 46%, rgba(255,187,187,1) 100%);
+
+}
+
+.choose_view {
+  color: black;
+  font-weight: bold;
+}
+
 .content {
   margin: 50px;
-  width: 1350px;
+  width: 1200px;
   padding: 50px;
   background-color: white;
   border-radius: 10px;
@@ -67,11 +94,19 @@ h4 {
 
 .boxscore_table th {
   width: 100px;
-  background-color: lightgray;
+  /* background-color: lightgray; */
+}
+
+thead {
+  background: rgb(6,4,45);
+  background: linear-gradient(120deg, rgba(6,4,45,1) 0%, rgba(14,14,110,1) 43%, rgba(26,157,209,1) 100%);
+  color: white;
+  border-radius: 10px;
 }
 
 .boxscore_table tr {
   border: 1px double lightgray;
+  border-radius: 10px;
 }
 
 .summary {
@@ -81,8 +116,9 @@ h4 {
   align-items: center;
   background-color: white;
   box-shadow: 0px 0px 10px gray;
-  background-color: lightgray;
-  color: black;
+  background: rgb(6,4,45);
+  background: linear-gradient(120deg, rgba(6,4,45,1) 0%, rgba(14,14,110,1) 43%, rgba(26,157,209,1) 100%);
+  color: white;
   border-radius: 5px;
   border-color: black;
   border-bottom: 1px solid #dcdddf;
@@ -96,16 +132,15 @@ h4 {
 }
 
 .hitter_container {
-  display: flex;
+
   justify-content: center;
-  align-items: top;
 }
 
 .hitter_stats {
   color: black;
   margin: 10px;
   padding: 10px;
-  width: 100%;
+  /* width: 50%; */
 }
 
 .hitter_table {
@@ -115,16 +150,18 @@ h4 {
   border-bottom: 1px solid #dcdddf;
   box-shadow: 0px 0px 10px gray;
   border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hitter_table td {
   font-size: 16px;
   background-color: white;
+  border-radius: 10px;
 }
 
 .hitter_table th {
   font-size: 16px;
-  background-color: lightgray;
   border-bottom: 1px double lightgray;
 }
 
@@ -133,5 +170,44 @@ h4 {
 }
 
 .player_name {
-  width: 180px;
+  width: 200px;
 }
+
+/* NBA PLAYER STAT TABLES */
+.player_stats {
+  color: black;
+  margin: 10px;
+  padding: 10px;
+  width: 1000px;
+}
+
+.player_table {
+  width: 100%;
+  border-radius: 10px;
+  border-color: black;
+  border-bottom: 1px solid #dcdddf;
+  box-shadow: 0px 0px 10px gray;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.player_table td {
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.player_table th {
+  font-size: 16px;
+  border-bottom: 1px double lightgray;
+}
+
+.player_table tr {
+  border-bottom: 1px double lightgray;
+}
+
+th:first-child { border-top-left-radius: 5px; }
+th:last-child  { border-top-right-radius: 5px; }
+
+
