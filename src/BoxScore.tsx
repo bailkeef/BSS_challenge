@@ -13,29 +13,18 @@ function BoxScore(props: any) {
   const cols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', 'H', 'E'];
   return (
     <div className="boxscore">
-      <div className="boxscore_table">
-        <table>
+      <div>
+        <table className="boxscore_table">
           <thead>
-            <td></td>
-            {cols.map((col, id) => {
+            <th>{` `}</th>
+            {cols.map((col: string, id: number) => {
               return (
                 <th key={id}>{col}</th>
               )})}
           </thead>
           <tbody>
             <tr>
-              <td>{props.homeTeam}</td>
-              {props.homeScore.map((score: number, id: number) => {
-                return (
-                  <td key={id}>{score}</td>
-                )
-              })}
-              <td>{props.homeRuns}</td>
-              <td>{props.homeHits}</td>
-            <td>{props.homeErrors}</td>
-            </tr>
-            <tr>
-              <td>{props.awayTeam}</td>
+              <td className="team_name">{props.awayTeam}</td>
               {props.awayScore.map((score: number, id: number) => {
                 return (
                   <td key={id}>{score}</td>
@@ -43,7 +32,18 @@ function BoxScore(props: any) {
               })}
               <td>{props.awayRuns}</td>
               <td>{props.awayHits}</td>
-            <td>{props.awayErrors}</td>
+              <td>{props.awayErrors}</td>
+            </tr>
+            <tr>
+              <td className="team_name">{props.homeTeam}</td>
+              {props.homeScore.map((score: number, id: number) => {
+                return (
+                  <td key={id}>{score}</td>
+                )
+              })}
+              <td>{props.homeRuns}</td>
+              <td>{props.homeHits}</td>
+              <td>{props.homeErrors}</td>
             </tr>
           </tbody>
         </table>
