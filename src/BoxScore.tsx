@@ -1,83 +1,79 @@
 import React, { useEffect, useState} from 'react';
+import {connect} from 'react-redux';
+import {fetchStats} from './store/stats';
+import { stat } from 'fs';
 
-export default function BoxScore(props: any) {
+function BoxScore(props: any) {
+  console.log(props, 'props')
 
+  useEffect(() => {
+    props.fetchStats();
+  }, []);
+
+  const cols = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', 'H', 'E'];
   return (
     <div className="boxscore">
-        <div className="boxscore__team boxscore__team--header">
-          <label></label>
-          <div className="boxscore__team__units">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-          </div>
-          <div className="boxscore__team__results">
-            <span>R</span>
-            <span>H</span>
-            <span>E</span>
-          </div>
-        </div>
-        <div className="boxscore__team boxscore__team--away">
-          <label>CHC</label>
-          <div className="boxscore__team__units">
-            <span>1</span>
-            <span>0</span>
-            <span>2</span>
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>1</span>
-            <span>1</span>
-          </div>
-          <div className="boxscore__team__results">
-            <span>5</span>
-            <span>12</span>
-            <span>0</span>
-          </div>
-        </div>
-        <div className="boxscore__team boxscore__team--home">
-          <label>STL</label>
-          <div className="boxscore__team__units">
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>3</span>
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>1</span>
-          </div>
-          <div className="boxscore__team__results">
-            <span>4</span>
-            <span>8</span>
-            <span>1</span>
-          </div>
-        </div>
-        <div className="boxscore__details">
-          <div className="boxscore__details__team boxscore__details__team--away">
-            <p>
-              <strong>Cubs</strong><small>CHC</small>
-            </p>
-            <span>56-38</span>
-          </div>
-          <div className="boxscore__details__info">
-            <strong>Btm<br/>9th</strong>
-          </div>
-          <div className="boxscore__details__team boxscore__details__team--home">
-            <p>
-              <strong>Cardinals</strong><small>STL</small>
-            </p>
-            <span>56-38</span>
-          </div>
-        </div>
+      <div className="boxscore_table">
+        <table>
+          <thead>
+            <td></td>
+            {cols.map((col, id) => {
+              return (
+                <th key={id}>{col}</th>
+              )})}
+          </thead>
+          <tbody>
+            <tr>
+              <td>{props.homeTeam}</td>
+              {props.homeScore.map((score: number, id: number) => {
+                return (
+                  <td key={id}>{score}</td>
+                )
+              })}
+              <td>{props.homeRuns}</td>
+              <td>{props.homeHits}</td>
+            <td>{props.homeErrors}</td>
+            </tr>
+            <tr>
+              <td>{props.awayTeam}</td>
+              {props.awayScore.map((score: number, id: number) => {
+                return (
+                  <td key={id}>{score}</td>
+                )
+              })}
+              <td>{props.awayRuns}</td>
+              <td>{props.awayHits}</td>
+            <td>{props.awayErrors}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
   );
+};
+
+/**
+ * CONTAINER
+ */
+const mapState = (state: any) => {
+  return {
+    homeScore: state.stats.homeScore,
+    awayScore: state.stats.awayScore,
+    homeTeam: state.stats.homeTeam,
+    awayTeam: state.stats.awayTeam,
+    homeErrors: state.stats.homeErrors,
+    awayErrors: state.stats.awayErrors,
+    homeRuns: state.stats.homeRuns,
+    awayRuns: state.stats.awayRuns,
+    homeHits: state.stats.homeHits,
+    awayHits: state.stats.awayHits,
+
+  }
 }
+const mapDispatch = (dispatch: any, state: any) => {
+  return {
+    fetchStats: () => dispatch(fetchStats())
+  }
+}
+
+export default connect(mapState, mapDispatch)(BoxScore);

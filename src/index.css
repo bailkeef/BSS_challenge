@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.boxscore {
+  color: black;
+  border-radius: 10px;
+}
+
+.boxscore_table {
+  width: 1000px;
+  border-radius: 5px;
+  border-color: black;
+  border-bottom: 1px solid #dcdddf;
+}
+
+.boxscore_table td {
+  width: 100px;
+  background-color: white;
+  border-color: black;
+}
+
+.boxscore_table th {
+  width: 100px;
+  background-color: grey;
+  border-color: black;
+}
