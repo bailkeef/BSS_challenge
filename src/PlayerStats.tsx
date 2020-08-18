@@ -87,6 +87,21 @@ function PlayerStats (props: any) {
                       </tr>
                     )
                   })}
+                  <tr className="nba_totals">
+                    <td>TEAM TOTALS</td>
+                    <td>{props[`${team}Stats`].minutes}</td>
+                    <td>{props[`${team}Stats`].field_goals_attempted}-{props[`${team}Stats`].field_goals_made}</td>
+                    <td>{props[`${team}Stats`].three_point_field_goals_attempted}-{props[`${team}Stats`].three_point_field_goals_made}</td>
+                    <td>{props[`${team}Stats`].free_throws_attempted}-{props[`${team}Stats`].free_throws_made}</td>
+                    <td>{props[`${team}Stats`].offensive_rebounds}</td>
+                    <td>{props[`${team}Stats`].defensive_rebounds}</td>
+                    <td>{Number(props[`${team}Stats`].defensive_rebounds) + Number(props[`${team}Stats`].offensive_rebounds)}</td>
+                    <td>{props[`${team}Stats`].steals}</td>
+                    <td>{props[`${team}Stats`].blocks}</td>
+                    <td>{props[`${team}Stats`].turnovers}</td>
+                    <td>{props[`${team}Stats`].personal_fouls}</td>
+                    <td>{props[`${team}Stats`].points}</td>
+                  </tr>
             </table>
           </div>
         )
@@ -113,6 +128,8 @@ const mapState = (state: any) => {
     awayLast: state.nba.awayLastName,
     homePlayers: state.nba.homePlayers,
     awayPlayers: state.nba.awayPlayers,
+    homeStats: state.nba.homeStats,
+    awayStats: state.nba.awayStats,
   }
 }
 const mapDispatch = (dispatch: any, state: any) => {

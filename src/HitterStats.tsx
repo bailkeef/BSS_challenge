@@ -43,6 +43,7 @@ function HitterStats (props: any) {
                     </tr>
                   )
                 })}
+                <tr>{}</tr>
             </table>
           </div>
         )

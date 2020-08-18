@@ -207,6 +207,10 @@ thead {
   border-bottom: 1px double lightgray;
 }
 
+.nba_totals {
+  font-weight: bold;
+}
+
 th:first-child { border-top-left-radius: 5px; }
 th:last-child  { border-top-right-radius: 5px; }
 
